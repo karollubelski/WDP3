@@ -1,0 +1,48 @@
+ď»ż#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int main()
+{
+	int rozmiar, srodkowy;
+	srand(time(NULL));
+	vector<int> v1;
+	cout << "Podaj rozmiar wektora: ";
+	cin >> rozmiar;
+
+	for (int i = 0; i < rozmiar; i++)
+	{
+		v1.push_back(rand() & 101);
+
+		cout << v1.at(i) << endl;
+
+	}
+
+	srodkowy = v1.size() / 2;
+	cout << "\tSrodkowa wartosc: " << v1.at(srodkowy) << endl;
+
+	for (int i = 0; i < v1.size(); i++)
+	{
+		if (v1.at(i) < srodkowy)
+		{
+			v1.at(i)++;
+		}
+	}
+
+	for (int i = 0; i < v1.size(); i++)
+	{
+		if (v1[i] > 90)
+		{
+			v1.at(i) = v1.at(srodkowy);
+		}
+	}
+
+	v1.erase(v1.end() - 2);
+
+	for (int i = 0; i < v1.size(); i++)
+	{
+		cout << v1.at(i) << endl;
+	
+	}
+}
